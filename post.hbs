@@ -30,14 +30,14 @@
         <section class="share">
             <h4>Share this post</h4>
 
-            <a href="http://twitter.com/share?text={{title}}&url={{url absolute="true"}}"
-                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><span class="alt">Twitter</span></a>
+            <a class="share-twitter" href="http://twitter.com/share?text={{title}}&url={{url absolute='true'}}"
+                onclick="window.open(this.href, 'twitter-share', 'height=235,width=550'); return false"><span class="alt">Twitter</span></a>
 
-            <a href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
-                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><span class="alt">Facebook</span></a>
+            <a class="share-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute='true'}}"
+                onclick="window.open(this.href, 'facebook-share','height=296,width=580'); return false"><span class="alt">Facebook</span></a>
 
-            <a href="https://plus.google.com/share?url={{url absolute="true"}}"
-               onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;"><span class="alt">Google+</span></a>
+            <a class="share-google-plus" href="https://plus.google.com/share?url={{url absolute='true'}}"
+               onclick="window.open(this.href, 'google-plus-share', 'height=530,width=490'); return false"><span class="alt">Google+</span></a>
         </section>
     </footer>
 
@@ -46,28 +46,16 @@
     <h4>Comments</h4>
 
     <div id="disqus_thread">
-        <form onsubmit="my.loadDisqus();return false;">
+        <form onsubmit="loadDisqus(); return false">
             <input type="submit" value="View comments">
         </form>
     </div>
 
-    <script>/* <![CDATA[ */
-    var disqus_shortname = "metacotta";
-    // provide the following in the template, if necessary
-    // var disqus_url = "http://yourghostblogdomainname/";
-    var disqus_identifier = '{{post.id}}';
-    if (typeof my == "undefined") {
-      var my = ({});
-    }
-    my.loadDisqus = function() {
-        var dsq = document.createElement('script');
-        dsq.type = 'text/javascript';
-        dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    };
-    /* ]]> */</script>
+    <script>
+    var disqus_identifier = '{{id}}';
+    var disqus_url = '{{url absolute="true"}}';
+    </script>
 
-    <noscript>Please enable javascript to <a rel="nofollow" href="http://disqus.com/?ref_noscript">discus this page, powered by Disqus.</a></noscript>
+    <noscript>Please enable javascript to <a href="http://disqus.com/?ref_noscript" rel="nofollow">discus this page, powered by Disqus.</a></noscript>
 </article>
 {{/post}}
