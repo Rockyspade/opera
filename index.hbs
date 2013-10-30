@@ -1,0 +1,21 @@
+{{!< default}}
+
+{{#foreach posts}}
+<article class="{{post_class}} {{#if @first}}first{{/if}} {{#if @last}}last{{/if}}" id="id-{{id}}">
+    <header class="post-header">
+        <h1 class="post-title"><a href="{{url}}">{{{title}}}</a></h1>
+
+        <span class="post-meta">
+            <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format='MMMM D, YYYY'}}</time>
+
+            {{#if tags}}<span class="post-tags">{{tags}}</span>{{/if}}
+        </span>
+    </header>
+
+    <div class="post-excerpt">
+        <p>{{excerpt}}&hellip;</p>
+    </div>
+</article>
+{{/foreach}}
+
+{{pagination}}
