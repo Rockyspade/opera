@@ -6,7 +6,7 @@
         <h1 class="post-title">{{{title}}}</h1>
 
         <span class="post-meta">
-            <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format='DD MMMM YYYY'}}</time>
+            <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format='MMMM D, YYYY'}}</time>
 
             {{#if tags}}<span class="post-tags">{{tags}}</span>{{/if}}
         </span>
@@ -43,19 +43,21 @@
 
     <!-- Disqus comments -->
 
-    <h4>Comments</h4>
+    <div class="comments">
+        <h4>Comments</h4>
 
-    <div id="disqus_thread">
-        <form onsubmit="loadDisqus(); return false">
-            <input type="submit" value="View comments">
-        </form>
+        <div id="disqus_thread">
+            <form onsubmit="loadDisqus(); return false">
+                <input type="submit" value="View comments">
+            </form>
+        </div>
+
+        <script>
+        var disqus_identifier = '{{id}}';
+        var disqus_url = '{{url absolute="true"}}';
+        </script>
+
+        <noscript>Please enable javascript to <a href="http://disqus.com/?ref_noscript" rel="nofollow">discus this page, powered by Disqus.</a></noscript>
     </div>
-
-    <script>
-    var disqus_identifier = '{{id}}';
-    var disqus_url = '{{url absolute="true"}}';
-    </script>
-
-    <noscript>Please enable javascript to <a href="http://disqus.com/?ref_noscript" rel="nofollow">discus this page, powered by Disqus.</a></noscript>
 </article>
 {{/post}}
