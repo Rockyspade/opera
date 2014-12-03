@@ -7,7 +7,7 @@
 
         <title>{{meta_title}}</title>
 
-        <link href="http://fonts.googleapis.com/css?family=" rel="stylesheet">
+        <link href="//fonts.googleapis.com/css?family=" rel="stylesheet">
         <link href="{{asset 'css/normalize.css'}}" rel="stylesheet">
         <link href="{{asset 'css/style.css'}}" rel="stylesheet">
         <link href="{{asset 'css/post.css'}}" rel="stylesheet">
@@ -16,7 +16,7 @@
     </head>
 
     <body class="{{body_class}}">
-        <header class="site-header {{#if @blog.cover}}site-cover{{/if}}" {{#if @blog.cover}}style="background-image: url({{@blog.cover}})"{{/if}} role="banner">
+        <header class="site-header {{#if @blog.cover}}site-cover{{/if}}" {{#if @blog.cover}}style="background-image: url({{@blog.cover}})"{{/if}}>
             {{#if @blog.logo}}<a class="site-logo" href="{{@blog.url}}"><img alt="" src="{{@blog.logo}}"></a>{{/if}}
 
             <h1 class="site-title"><a href="{{@blog.url}}">{{@blog.title}}</a></h1>
@@ -24,16 +24,16 @@
             <h2 class="site-description">{{@blog.description}}</h2>
         </header>
 
-        <main class="site-main" role="main">
+        <main class="site-main">
         {{{body}}}
         </main>
 
-        <footer class="site-footer" role="contentinfo">
+        <footer class="site-footer">
             <a class="site-subscribe" href="{{@blog.url}}/rss">Subscribe</a>
 
-            <section class="site-copyright">&copy; Copyright <a href="/">{{@blog.title}}</a> {{date format='YYYY'}}. All rights reserved.</section>
+            <section class="site-copyright">&copy; {{date format='YYYY'}} <a href="{{@blog.url}}">{{@blog.title}}</a>. All rights reserved.</section>
 
-            <section class="site-powered-by">Geared by <a href="http://ghost.org">Ghost</a></section>
+            <section class="site-powered-by">Published with <a href="http://ghost.org">Ghost</a></section>
         </footer>
 
         {{ghost_foot}}

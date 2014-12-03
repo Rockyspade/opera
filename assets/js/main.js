@@ -1,4 +1,22 @@
-// Google Analytics
+/*
+ * Config
+ */
+
+var config = {
+		disqus: {
+			shortname: '',
+		},
+		google: {
+			analytics: {
+				id: 'UA-XXXX-Y',
+			},
+		},
+	};
+
+
+/*
+ * Google Analytics
+ */
 
 if(location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 
@@ -7,23 +25,26 @@ if(location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-	ga('create', 'UA-XXXX-Y');
+	ga('create', config.google.analytics.id);
 	ga('send', 'pageview');
 }
 
 
-// Disqus comments
+/*
+ * Disqus
+ */
 
-var disqus_shortname = 'metacotta';
+if(config.disqus.shortname) {
 
-$('.comments-toggle').on('click', function(event) {
+	$('.comments-toggle').on('click', function(event) {
 
-	event.preventDefault();
+		event.preventDefault();
 
-	var dsq = document.createElement('script');
+		var dsq = document.createElement('script');
 
-	dsq.async = true;
-	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		dsq.async = true;
+		dsq.src = '//' + config.disqus.shortname + '.disqus.com/embed.js';
 
-	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-});
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	});
+}
